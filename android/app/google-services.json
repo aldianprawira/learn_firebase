@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "211498980084",
+    "project_id": "aldian-firebase",
+    "storage_bucket": "aldian-firebase.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:211498980084:android:59051e3e10e41ac21f44a1",
+        "android_client_info": {
+          "package_name": "com.example.aldian_fb"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "211498980084-9pi2h8chade1pmij3j3kr9vifdi680p7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBjQMrfkmJV1ELg4iyHiCodkW4pkdxnw5Q"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "211498980084-9pi2h8chade1pmij3j3kr9vifdi680p7.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
