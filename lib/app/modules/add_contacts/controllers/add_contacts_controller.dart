@@ -2,25 +2,25 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 
-class AddProductController extends GetxController {
-  late TextEditingController namaC;
-  late TextEditingController hargaC;
+class AddContactsController extends GetxController {
+  late TextEditingController nameC;
+  late TextEditingController phoneC;
   FirebaseFirestore firestore = FirebaseFirestore.instance;
 
-  void addProduct(String nama, String harga) async {
-    CollectionReference products = firestore.collection("products");
+  void addContacts(String name, String phone) async {
+    CollectionReference contacts = firestore.collection("contacts");
 
     try {
-      await products.add({
-        "nama": nama,
-        "harga": harga,
+      await contacts.add({
+        "name": name,
+        "phone": phone,
       });
       Get.defaultDialog(
         title: "Berhasil",
-        middleText: "Berhasil menambahkan produk",
+        middleText: "Berhasil menambahkan kontak",
         onConfirm: () {
-          namaC.clear();
-          hargaC.clear();
+          nameC.clear();
+          phoneC.clear();
           Get.back();
           Get.back();
         },
@@ -30,22 +30,22 @@ class AddProductController extends GetxController {
       print(e);
       Get.defaultDialog(
         title: "Gagal",
-        middleText: "Gagal menambahkan produk",
+        middleText: "Gagal menambahkan kontak",
       );
     }
   }
 
   @override
   void onInit() {
-    namaC = TextEditingController();
-    hargaC = TextEditingController();
+    nameC = TextEditingController();
+    phoneC = TextEditingController();
     super.onInit();
   }
 
   @override
   void onClose() {
-    namaC.dispose();
-    hargaC.dispose();
+    nameC.dispose();
+    phoneC.dispose();
     super.onClose();
   }
 }

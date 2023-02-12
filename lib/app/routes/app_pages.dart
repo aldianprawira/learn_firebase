@@ -1,9 +1,9 @@
 import 'package:get/get.dart';
 
-import '../modules/add_product/bindings/add_product_binding.dart';
-import '../modules/add_product/views/add_product_view.dart';
-import '../modules/edit_product/bindings/edit_product_binding.dart';
-import '../modules/edit_product/views/edit_product_view.dart';
+import '../modules/add_contacts/bindings/add_contacts_binding.dart';
+import '../modules/add_contacts/views/add_contacts_view.dart';
+import '../modules/edit_contacts/bindings/edit_contacts_binding.dart';
+import '../modules/edit_contacts/views/edit_contacts_view.dart';
 import '../modules/home/bindings/home_binding.dart';
 import '../modules/home/views/home_view.dart';
 
@@ -21,14 +21,14 @@ class AppPages {
       binding: HomeBinding(),
     ),
     GetPage(
-      name: _Paths.ADD_PRODUCT,
-      page: () => const AddProductView(),
-      binding: AddProductBinding(),
+      name: _Paths.ADD_CONTACTS,
+      page: () => const AddContactsView(),
+      binding: AddContactsBinding(),
     ),
     GetPage(
-      name: _Paths.EDIT_PRODUCT,
-      page: () => const EditProductView(),
-      binding: EditProductBinding(),
+      name: _Paths.EDIT_CONTACTS,
+      page: () => const EditContactsView(),
+      binding: EditContactsBinding(),
     ),
   ];
 }
