@@ -12,12 +12,34 @@ class HomeView extends GetView<HomeController> {
         title: const Text('HomeView'),
         centerTitle: true,
       ),
-      body: ListView.builder(
-        itemCount: 10,
-        itemBuilder: (context, index) => const ListTile(
-          title: Text("Produk"),
-          subtitle: Text("Harga"),
-        ),
+      body: StreamBuilder(
+        stream: controller.streamData(),
+        builder: (context, snapshot) {
+          if (snapshot.connectionState == ConnectionState.active) {
+            var listAllDocs = snapshot.data!.docs;
+            return ListView.builder(
+              itemCount: listAllDocs.length,
+              itemBuilder: (context, index) => ListTile(
+                onTap: () => Get.toNamed(
+                  Routes.EDIT_PRODUCT,
+                  arguments: listAllDocs[index].id,
+                ),
+                title: Text(
+                    "${(listAllDocs[index].data() as Map<String, dynamic>)["nama"]}"),
+                subtitle: Text(
+                    "${(listAllDocs[index].data() as Map<String, dynamic>)["harga"]}"),
+                trailing: IconButton(
+                  onPressed: () =>
+                      controller.deleteProduct(listAllDocs[index].id),
+                  icon: const Icon(Icons.delete),
+                ),
+              ),
+            );
+          }
+          return const Center(
+            child: CircularProgressIndicator(),
+          );
+        },
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () => Get.toNamed(Routes.ADD_PRODUCT),
